@@ -13,6 +13,9 @@ export const styles = StyleSheet.create({
     },
     text16600: {
         fontSize: constants.vw(16),
-        fontWeight: "600"
-    }
+        fontWeight: "600",
+        marginTop: constants.vh(30),
+        color: "skyblue"
+    },
+    image: { height: constants.vh(80), width: constants.vw(100) }
 })

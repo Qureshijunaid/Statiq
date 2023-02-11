@@ -37,7 +37,7 @@ function App(props) {
   )
 }
 
-function mapStateToProps(state ) {
+function mapStateToProps(state) {
   const { auth
   } = state
   return {
@@ -64,7 +64,7 @@ export default function Root() {
       <Switching />
       <Toast
         ref={(ref) => Toast.setRef(ref)}
-        topOffset={ 20}
+        topOffset={20}
       />
     </Provider>
   )

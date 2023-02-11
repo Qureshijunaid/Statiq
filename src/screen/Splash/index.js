@@ -24,8 +24,15 @@ const SplashScreen = (props) => {
                 resizeMode="cover"
                 style={{ flex: 1 }}>
                 <View style={styles.container}>
+                    <Image
+                        resizeMode="contain"
+                        style={styles.image}
+                        source={require('../../assets/images/ExamRoom/ExamRoom.png')}
+                    />
                     <Text style={styles.text16600}>ExamRoom.AI</Text>
+
                 </View>
+
 
             </ImageBackground>
 
