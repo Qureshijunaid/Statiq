@@ -1,6 +1,7 @@
 const initialstate = {
 
-    cryptoData: []
+    cryptoData: [],
+    btcData: []
 
 }
 
@@ -12,6 +13,13 @@ const appReducer = (prevState = initialstate, action) => {
                 cryptoData: action.data
 
             }
+        case "get_Btc_price":
+            return {
+                ...prevState,
+                btcData: action.data
+
+            }
+
         default:
             return prevState
     }

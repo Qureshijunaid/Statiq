@@ -5,12 +5,20 @@ import {
     StatusBar, ImageBackground
 } from 'react-native';
 import ListItem from '../../components/ListItem';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { CommonActions } from '@react-navigation/native';
 import { connect } from 'react-redux';
-import { getMarketData } from '../../utils/services/crytoService';
+import { getMarketData, } from '../../utils/services/crytoService';
+import { getBTCPrice } from '../../actions/app';
 
-const ListHeader = () => (
+const ListHeader = (props) => (
     <>
         <View style={styles.titleWrapper}>
+            <Ionicons
+                name={"arrow-back"}
+                size={25}
+                onPress={props.onPress}
+            />
             <Text style={styles.largeTitle}>Markets</Text>
         </View>
         <View style={styles.divider} />
@@ -28,7 +36,10 @@ function Menu(props) {
         }
 
         fetchMarketData();
+        props.dispatch(getBTCPrice())
     }, [])
+
+
 
 
     const openModal = (item) => {
@@ -36,7 +47,6 @@ function Menu(props) {
 
         props.navigation.navigate("Chart", { data: item })
     }
-    console.log("selectedCoinData", selectedCoinData)
 
     return (
         <>
@@ -45,7 +55,7 @@ function Menu(props) {
                 source={require('../../assets/images/ImageBackground/bg.png')}
                 resizeMode="cover"
                 style={{ flex: 1 }}>
-                <View  style={{ marginTop:30 }}>
+                <View style={{ marginTop: 30 }}>
                     <FlatList
                         keyExtractor={(item) => item.id}
                         data={data}
@@ -59,7 +69,7 @@ function Menu(props) {
                                 onPress={() => openModal(item)}
                             />
                         )}
-                        ListHeaderComponent={<ListHeader />}
+                        ListHeaderComponent={<ListHeader onPress={() => props.navigation.dispatch(CommonActions.goBack())} />}
                     />
                 </View>
 
@@ -78,6 +88,8 @@ const styles = StyleSheet.create({
     titleWrapper: {
         marginTop: 20,
         paddingHorizontal: 16,
+        flexDirection: "row",
+        alignItems: "center"
     },
     largeTitle: {
         fontSize: 24,
@@ -107,7 +119,7 @@ function mapStateToProps(state) {
         app
     }
 }
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch) {
     return {
         dispatch,
     }

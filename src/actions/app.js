@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Dispatch } from 'redux';
 
 export const getCrypto = () => {
-    return async (dispatch: Dispatch) => {
+    return async (dispatch) => {
         var config = {
             method: 'get',
             url: 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true&price_change_percentage=7d',
@@ -23,4 +23,27 @@ export const getCrypto = () => {
                 console.log(error);
             });
     }
+}
+
+export const getBTCPrice = () => {
+    return async (dispatch) => {
+        var config = {
+            method: 'get',
+            url: 'https://data.messari.io/api/v1/assets/btc/metrics',
+            headers: {}
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                dispatch({
+                    type: "get_Btc_price",
+                    data: response.data
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
 }
