@@ -13,6 +13,7 @@ import {
 import { connect } from 'react-redux';
 
 import constants from '../../constants';
+import { styles } from './style';
 
 const SplashScreen = (props) => {
     return (
@@ -22,7 +23,10 @@ const SplashScreen = (props) => {
                 source={require('../../assets/images/ImageBackground/bg.png')}
                 resizeMode="cover"
                 style={{ flex: 1 }}>
-                <Text>ExamRoom.AI</Text>
+                <View style={styles.container}>
+                    <Text style={styles.text16600}>ExamRoom.AI</Text>
+                </View>
+
             </ImageBackground>
 
         </>

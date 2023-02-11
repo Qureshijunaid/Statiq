@@ -6,7 +6,7 @@ const initialstate = {
 
 }
 
-const authReducer = (prevState = initialstate, action: { type: any; isLoading: any; isAppLoading: any; }) => {
+const authReducer = (prevState = initialstate, action) => {
     switch (action.type) {
         case "AUTH_SWITCH_ROUTE":
             return {

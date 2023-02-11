@@ -10,11 +10,11 @@ const scale = SCREEN_WIDTH / 375;
 export const width = Dimensions.get('window').width;
 export const height = Dimensions.get('window').height;
 
-export function normalize(size: number) {
+export function normalize(size) {
     return PixelRatio.roundToNearestPixel(size * scale);
 }
 
-export const vw = (width: number) => {
+export const vw = (width) => {
     // Parse string percentage input and convert it to number.
     let percent = (width / DesignWidth) * 100;
     const elemWidth = parseFloat(percent + "%");
@@ -23,7 +23,7 @@ export const vw = (width: number) => {
     return PixelRatio.roundToNearestPixel(screenWidth * elemWidth / 100);
 };
 
-export const vh = (height: number) => {
+export const vh = (height) => {
     // Parse string percentage input and convert it to number.
     let percent = (height / DesignHeight) * 100;
     const elemHeight = parseFloat(percent + "%");

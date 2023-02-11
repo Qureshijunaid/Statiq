@@ -8,10 +8,17 @@ import constants from '../../constants';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center"
+        justifyContent: "center",
+       
     },
-    subContainer:{
-        width:"90%",     
+    signupContainerBack: {
+        flexDirection: "row",
+        alignItems: "center", 
+        marginStart: constants.vw(15)
+    },
+    subContainer: {
+        width: "90%",
+       alignSelf:"center"
     },
     text18600: {
         fontSize: 18,
@@ -19,13 +26,14 @@ export const styles = StyleSheet.create({
 
     },
     inputContainer: {
-        marginTop:constants.vh(30),
-     
-       
+        marginTop: constants.vh(30),
+        alignSelf: "center"
+
+
     },
     buttonContainer: {
         width: "50%",
         alignSelf: "center",
-        marginTop:constants.vh(30),
+        marginTop: constants.vh(30),
     }
 })

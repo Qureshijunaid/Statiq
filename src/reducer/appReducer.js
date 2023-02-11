@@ -4,7 +4,7 @@ const initialstate = {
 
 }
 
-const appReducer = (prevState = initialstate, action: { type: any; isLoading: any; isAppLoading: any; }) => {
+const appReducer = (prevState = initialstate, action) => {
     switch (action.type) {
         case "Set_Crypto_Data":
             return {

@@ -6,6 +6,12 @@ import { writeStorage, readStorage, removeAllStorage, removeStorage } from './mo
 */
 export const wipeStorage = async () => {
     return new Promise(function (resolve) {
+        resolve(removeStorage('USER_CRED'));
+    });
+}
+
+export const wipeStorageAll = async () => {
+    return new Promise(function (resolve) {
         resolve(removeAllStorage());
     });
 }
@@ -16,10 +22,24 @@ export const wipeStorage = async () => {
  *    
 */
 export const setUser = async (value) => {
+
     return new Promise(function (resolve) {
         resolve(writeStorage('USER_CRED', value));
     });
 }
+export const setDeletedUser = async (value) => {
+
+    getDeletedUser().then(deletedSavedUser => {
+        let parvalue = deletedSavedUser ??[]
+        parvalue.push(value)
+        return new Promise(function (resolve) {
+
+            resolve(writeStorage('DELETE_CRED', parvalue));
+        });
+    })
+}
+
+
 
 
 /*
@@ -31,3 +51,14 @@ export const getUser = async () => {
         resolve(readStorage('USER_CRED'));
     });
 }
+
+export const getDeletedUser = async () => {
+    return new Promise(function (resolve) {
+        resolve(readStorage('DELETE_CRED'));
+    });
+}
+
+
+
+
+

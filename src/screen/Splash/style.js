@@ -11,4 +11,8 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    text16600: {
+        fontSize: constants.vw(16),
+        fontWeight: "600"
+    }
 })

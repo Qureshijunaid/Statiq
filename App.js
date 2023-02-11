@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { connect, Provider } from 'react-redux';
+import Toast from 'react-native-toast-message';
 import { getUser } from './src/utils/asyncstorage'
 import AuthStack from './src/navigation/auth';
 import AppStack from './src/navigation/appStack'
@@ -36,7 +37,7 @@ function App(props) {
   )
 }
 
-function mapStateToProps(state: { auth: any; }) {
+function mapStateToProps(state ) {
   const { auth
   } = state
   return {
@@ -44,7 +45,7 @@ function mapStateToProps(state: { auth: any; }) {
 
   }
 }
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch) {
   return {
     dispatch,
   }
@@ -61,7 +62,10 @@ export default function Root() {
   return (
     <Provider store={store}>
       <Switching />
-
+      <Toast
+        ref={(ref) => Toast.setRef(ref)}
+        topOffset={ 20}
+      />
     </Provider>
   )
 }
