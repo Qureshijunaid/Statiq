@@ -7,7 +7,7 @@ import constants from '../../constants';
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 0.8,
         justifyContent: "center",
        
     },
@@ -35,5 +35,21 @@ export const styles = StyleSheet.create({
         width: "50%",
         alignSelf: "center",
         marginTop: constants.vh(30),
+    },
+    text16600: {
+        fontSize: constants.vw(16),
+        fontWeight: "600",
+        marginTop: constants.vh(30),
+        color: "black"
+    },
+    image: {
+        height: constants.vh(150),
+        width: constants.vw(150),
+    },
+    headerContainer:{
+        width:"50%",
+        alignItems:"center",
+        justifyContent:"center",
+        alignSelf:"center"
     }
 })

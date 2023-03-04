@@ -26,10 +26,8 @@ const SplashScreen = (props) => {
                 <View style={styles.container}>
                     <Image
                         resizeMode="contain"
-                        style={styles.image}
-                        source={require('../../assets/images/ExamRoom/ExamRoom.png')}
+                        source={require('../../assets/images/Statiq/Statiqremovebg.png')}
                     />
-                    <Text style={styles.text16600}>ExamRoom.AI</Text>
 
                 </View>
 

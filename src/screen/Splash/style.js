@@ -17,5 +17,5 @@ export const styles = StyleSheet.create({
         marginTop: constants.vh(30),
         color: "skyblue"
     },
-    image: { height: constants.vh(80), width: constants.vw(100) }
+
 })

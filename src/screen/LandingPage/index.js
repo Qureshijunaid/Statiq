@@ -43,12 +43,7 @@ function LandingPage(props) {
                         onPress={() => deleteAccount()}>
                         <Text style={styles.text16600}>Delete</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        style={styles.deleteContainer}
-                        onPress={() => props.navigation.navigate(constants.ConstStrings.menu)}>
-                        <Text style={styles.text16600} >Menu</Text>
-                    </TouchableOpacity>
+
                 </SafeAreaView>
             </ImageBackground>
         </>

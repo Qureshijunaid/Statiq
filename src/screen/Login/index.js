@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-    View, Text, SafeAreaView, TouchableOpacity,
+    View, Text, Image, TouchableOpacity,
     StatusBar,
     ImageBackground,
     Keyboard
@@ -46,7 +46,7 @@ function Login(props) {
         }
         if (state.username.length === 0) {
             Toast.show({
-                text1: constants.ConstStrings.examAi,
+                text1: constants.ConstStrings.statiq,
                 text2: constants.ConstStrings.enterUserName,
                 type: "error",
                 position: "top"
@@ -55,7 +55,7 @@ function Login(props) {
         }
         if (state.password.length === 0) {
             Toast.show({
-                text1: constants.ConstStrings.examAi,
+                text1: constants.ConstStrings.statiq,
                 text2: constants.ConstStrings.enterYourPassword,
                 type: "error",
                 position: "top"
@@ -67,7 +67,7 @@ function Login(props) {
             if (deleteUser !== null) {
                 if (equalsCheck(loginCred, deleteUser)) {
                     Toast.show({
-                        text1: constants.ConstStrings.examAi,
+                        text1: constants.ConstStrings.statiq,
                         text2: "Oops Already you deleted account, please signup again",
                         type: "error",
                         position: "top"
@@ -95,6 +95,15 @@ function Login(props) {
                 source={require('../../assets/images/ImageBackground/bg.png')}
                 resizeMode="cover"
                 style={{ flex: 1 }}>
+                <View style={styles.headerContainer}>
+                    <Image
+                        resizeMode="contain"
+                        style={styles.image}
+                        source={require('../../assets/images/Statiq/Statiqremovebg.png')}
+                    />
+                    {/* <Text style={styles.text16600}>Statiq</Text> */}
+
+                </View>
                 <KeyboardAwareScrollView showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.container}
                 >
@@ -105,7 +114,7 @@ function Login(props) {
                         <Text style={styles.text18600}>{constants.ConstStrings.login}</Text>
                         <View style={styles.inputContainer}>
                             <PrimaryInput
-                                placeholder={"username"}
+                                placeholder={constants.ConstStrings.username}
                                 onChangeText={(text) => setState({
                                     ...state,
                                     username: text
@@ -115,7 +124,7 @@ function Login(props) {
                         </View>
                         <View style={styles.inputContainer}>
                             <PrimaryInput
-                                placeholder={"password"}
+                                placeholder={constants.ConstStrings.password}
                                 showSecure={true}
                                 isSecure={state.hidePassword}
                                 onIconpress={handlePasswordShow}
